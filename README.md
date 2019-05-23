@@ -7,3 +7,7 @@ Requisitos:
 
 IDE:
 * IntelliJ IDEA Community Edition 2019.1.1
+
+
+Recomendo ler também: 
+* https://www.braveclojure.com/
