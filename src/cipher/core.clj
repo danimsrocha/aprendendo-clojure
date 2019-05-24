@@ -14,3 +14,10 @@
   [letter-char]
   (let [ascii-a (int \a)]
     (- (int letter-char) ascii-a)))
+
+(defn to-char
+  "recebe um número e retorna a letra correspondete ao Código ASCII"
+  [number]
+  (if(> number 0)
+    (if (< number 25)
+      (char number))))
