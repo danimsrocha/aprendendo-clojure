@@ -1,10 +1,5 @@
 (ns cipher.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-
 (defn g
   [x y]
   (+ (* x 5) y))
@@ -16,8 +11,11 @@
     (- (int letter-char) ascii-a)))
 
 (defn to-char
-  "recebe um número e retorna a letra correspondete ao Código ASCII"
   [number]
-  (if(> number 0)
-    (if (< number 25)
-      (char number))))
+  (if (and (> number 96)(< number 105))
+    (char number)))
+
+(defn to-chartes
+  [number]
+  (if (and (> number 96)(< number 105))
+    (char number)))
