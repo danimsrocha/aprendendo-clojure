@@ -14,8 +14,3 @@
   [number]
   (if (and (> number 96)(< number 105))
     (char number)))
-
-(defn to-chartes
-  [number]
-  (if (and (> number 96)(< number 105))
-    (char number)))
