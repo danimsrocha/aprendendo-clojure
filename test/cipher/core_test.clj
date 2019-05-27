@@ -24,11 +24,17 @@
         \c    2
         \d    3))
 
-(facts "recebe um número e retorna o código ascii: 98 = b, 99 = c"
+(facts "recebe um número e retorna o código ascii: 1 = b, 2 = c"
        (tabular
         (core/to-char number) => ?result
         number ?result
-        97     \a
-        98     \b
-        99     \a
-        100    \c))
+        0     \a
+        1     \b
+        2     \c
+        3     \d))
+
+(facts ""
+       (tabular
+        (core/shift (+ ?char number)) => ?result
+        ?char number ?result
+        \a    3      \d))
