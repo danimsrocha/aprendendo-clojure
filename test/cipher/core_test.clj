@@ -33,8 +33,43 @@
         2     \c
         3     \d))
 
-(facts ""
+(facts "recee uma letra minuscula e a quantidade de posicoes que deve inserir, e retorna a letra do alfabeto: a,3 = d, x,4 = b"
        (tabular
-        (core/shift (+ ?char number)) => ?result
+        (core/shift ?char number) => ?result
         ?char number ?result
-        \a    3      \d))
+        \a    3      \d
+        \a    4      \e
+        \x    4      \b
+        \b    20     \v
+        \z    3      \c
+        \a    -3     \x))
+
+(facts "Recebe uma palavra e uma chave que indica a quantidade de posicoes e retorna a palavra encriptada"
+       (tabular
+        (core/caesar-encrypt ?word k) => ?result
+        ?word              k    ?result
+        "apple"            20     "ujjfy"
+        "boston"           5      "gtxyts"
+        "clojurebridge"    10     "mvytebolbsnqo"))
+
+(facts "Recebe uma palavra encriptada e uma chave que indica a quantidade de posicoes e retorna a palavra descriptada"
+       (tabular
+        (core/caesar-decrypt ?word k) => ?result
+        ?word              k    ?result
+        "ujjfy"            20   "apple"
+        "gtxyts"           5    "boston"
+        "mvytebolbsnqo"    10   "clojurebridge"))
+
+(facts "Recebe uma palavra encriptada e uma chave que indica a quantidade de posicoes e retorna a palavra descriptada"
+       (tabular
+        (core/get-letters ?word) => ?result
+        ?word              ?result
+        "Hello, friend!"   "hellofriend"
+        "DANIELA"          "daniela"
+        "D@n!elA"          "dnela"))
+
+(facts "Recebe uma frase e retorna ela encriptada"
+       (tabular
+        (core/encrypt ?word k) => ?result
+        ?word             k  ?result
+        "Hello, friend!"  5    "mjqqtkwnjsi"))
