@@ -18,7 +18,26 @@
       (char number-ascii))))
 
 (defn shift
-  [letter-char][number]
-  (let [number-ascii(to-int letter-char)]
+  [?letter-char number]
+  (let [number-ascii(to-int ?letter-char)]
     (let [sum (+ number-ascii number)]
       (to-char (mod sum 26)))))
+
+(defn caesar-encrypt
+  "encriptando uma palavra w com uma chave k utilizanado a cifra de César"
+  [?word key]
+  (apply str (mapv #(shift % key) ?word)))
+
+(defn caesar-decrypt
+  [?word-encrypt key]
+  (let [key-negative(* key -1)]
+    (apply str(mapv #(shift % key-negative) ?word-encrypt))))
+
+(defn get-letters
+  [?word]
+  (let [?word-lowercase (clojure.string/lower-case ?word)]
+    (apply str (filterv #(Character/isLetter %) ?word-lowercase))))
+
+(defn encrypt
+  [?word key]
+  (caesar-encrypt (get-letters ?word) key))
