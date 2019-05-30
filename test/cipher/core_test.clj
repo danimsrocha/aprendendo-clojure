@@ -69,7 +69,13 @@
         "D@n!elA"          "dnela"))
 
 (facts "Recebe uma frase e retorna ela encriptada"
+        (core/encrypt "Hello, friend!" 5) => "mjqqtkwnjsi")
+
+(facts "Conta quantos caracateres da letra passada como parametro tem na paavra"
        (tabular
-        (core/encrypt ?word k) => ?result
-        ?word             k  ?result
-        "Hello, friend!"  5    "mjqqtkwnjsi"))
+        (core/count-letters ?letter ?word) => result
+        ?letter ?word     result
+        \a      "aadvark" 3
+        \x      "aadvark" 0
+        \d      "daniela" 1))
+

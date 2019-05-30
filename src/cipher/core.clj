@@ -41,3 +41,18 @@
 (defn encrypt
   [?word key]
   (caesar-encrypt (get-letters ?word) key))
+
+(defn count-letters
+  [?letter ?word]
+  (count (filterv #(= ?letter %) ?word)))
+
+(def alphabet (map to-char (range 26)))
+
+(def encr1 "radyjgtxhpsncpbxrvtctgpaejgedhtegdvgpbbxcvapcvjpvtrdbqxcxcv
+iwtpeegdprwpqxaxinpcsxcitgprixktstktadebtciduphrgxeixcvapcvjp
+vtlxiwpctuuxrxtcipcsgdqjhixcugphigjrijgtudgbjaixiwgtpstsegdvg
+pbbxcvo")
+
+(defn hasmap
+  [?word]
+  (zipmap alphabet (mapv #(count-letters % ?word) alphabet)))
